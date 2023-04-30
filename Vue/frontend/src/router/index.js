@@ -4,7 +4,11 @@ import HomeView from '../views/HomeView.vue'
 
 import ProductListPage from '@/views/product/ProductListPage.vue'
 import ProductReadPage from '@/views/product/ProductReadPage.vue'
+
+
 import ProductRegisterPage from '@/views/product/ProductRegisterPage.vue'
+import ProductModifyPage from '@/views/product/ProductModifyPage'
+
 
 Vue.use(VueRouter)
 
@@ -28,14 +32,29 @@ const routes = [
     component: ProductListPage
   },
   {
-    path: '/product-read-page',
+    path: '/product-read-page/:productId',
     name: 'ProductReadPage',
-    component: ProductReadPage
+    components: {
+      default: ProductReadPage
+    },
+    props: {
+      default: true
+    },
   },
   {
     path: '/product-register-page',
     name: 'ProductRegisterPage',
     component: ProductRegisterPage
+  },
+  {
+    path: '/product-modify-page/:productId',
+    name: 'ProductModifyPage',
+    components: {
+      default: ProductModifyPage
+    },
+    props: {
+      default: true,
+    }
   },
 ]
 
